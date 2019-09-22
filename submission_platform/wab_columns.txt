@@ -1,0 +1,10 @@
+001 WAB Tracking ID
+020 Category of Entry List
+090 Judging Status
+100 Submission: address (comma-sep)
+101 Submission:  salutation
+102 Submission:  f_name
+103 Submission:  l_name
+105 Submission:  title
+106 Submission:  company
+112 Submission:  country

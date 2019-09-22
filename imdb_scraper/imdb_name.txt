@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+	<body id="styleguide-v2" class="fixed">
+		<div id="wrapper">
+			<div id="root" class="redesign">
+				<div id="pagecontent" class="pagecontent" itemscope itemtype="http://schema.org/Person">
+					<div id="content-2-wide" class="redesign">
+						<div class="maindetails_center" id="maindetails_center_top">
+							<div class="article name-overview">
+								<div id="name-overview-widget">
+									<table cellspacing="0" cellpadding="0" border="0" id="name-overview-widget-layout">
+										<tbody>
+										<tr>
+											<td rowspan="2" id="img_primary"><div class="image"></div></td>
+											<td id="overview-top">
+												<div class="no-pic-wrapper">
+													<a href="https://pro.imdb.com/name/nm2476904?rf=cons_nm_chgpimage&ref_=cons_nm_chgpimage"> <img class="no-pic-image"src="https://images-na.ssl-images-amazon.com/images/G/01/imdb/images/nopicture/medium/name-2135195744._CB499537182_.png" /></a>
+													<div class="no-pic-text-column">
+														<div id="prometer_container">
+															<div id="prometer" class="meter-collapsed down three-line">
+																<div id="meterHeaderBox">
+																	<div class="meterToggleOnHover">STARmeter</div>
+																	<a href="https://pro.imdb.com/name/nm2476904?rf=cons_nm_meter&ref_=cons_nm_meter" id="meterRank" >SEE RANK</a>
+																</div>
+															</div>
+														</div>
+														<h1 class="header"> <span class="itemprop" itemprop="name">Nicholas David Lean</span> </h1>
+														<div class="infobar" id="name-job-categories">
+															<a href="#producer" onclick="nameJobCategoriesClickHandler(this)" > <span class="itemprop" itemprop="jobTitle">Producer</span></a><span class="ghost">|</span> 
+															<a href="#director" onclick="nameJobCategoriesClickHandler(this)" > <span class="itemprop" itemprop="jobTitle">Director</span></a><span class="ghost">|</span> 
+															<a href="#writer" onclick="nameJobCategoriesClickHandler(this)" > <span class="itemprop" itemprop="jobTitle">Writer</span></a>
+														</div>
+													</div>
+												</div>
+									</div>
+								</div>
+								<div class="txt-block" id="name-bio-text">
+									<div class="name-trivia-bio-text">
+										<div class="inline" itemprop="description">
+											Nicholas David Lean is a producer and director, known for <a href="/title/tt2905172?ref_=nm_ov_bio_lk1">The Candidate</a>, <a href="/title/tt6456780?ref_=nm_ov_bio_lk2">Siren</a> and <a href="/title/tt2393817?ref_=nm_ov_bio_lk3">Dead End</a> (2012).
+											<span class="see-more inline nobr-only"><a href="/name/nm2476904/bio?ref_=nm_ov_bio_sm">See full bio</a> &raquo;</span>
+										</div>
+									</div>
+								</div>
+											</td>
+										<tr>
+											<td id="overview-middle">
+												<div id="name-pro-info" class="pro-list">
+													<span class="pro-list-title"><a href="https://pro.imdb.com/name/nm2476904?rf=cons_nm_more&ref_=cons_nm_more">More at IMDbPro</a> &raquo;</span>
+													<a href="https://pro.imdb.com/name/nm2476904?rf=cons_nm_contact&ref_=cons_nm_contact"><img class="absmiddle" width="13" height="13" src="https://images-na.ssl-images-amazon.com/images/G/01/imdb/images/icons/phone-375450651._CB499536217_.png" alt="Contact Info on IMDbPro"/></a>
+													<strong>Contact Info:</strong><a href="https://pro.imdb.com/name/nm2476904?rf=cons_nm_contact&ref_=cons_nm_contact"> View manager and company</a><br />
+												</div>
+											</td>
+										</tr>
+										</tbody>
+									</table>
+						</div>
+					</div>
+				</div>
+				<div id="maindetails_sidebar_bottom" class="maindetails_sidebar" data-caller-name="name-main">
+					<div class="aux-content-widget-2" >
+						<h3>Projects In Development <a href="https://help.imdb.com/article/imdb/discover-watch/can-i-view-in-development-titles-on-imdb/GDGA3TBE7F6KPDFN?ref_=cons_nm_indevelopment" class="titlePageSprite helpInSprite" ></a></h3>
+						<div class="devitem odd">
+							<a href="/title/tt3553416?ref_=nm_dev_1"> Mindheist</a>
+						</div>
+						<div class="devitem even">
+							<a href="/title/tt6456780?ref_=nm_dev_2"> Siren</a>
+						</div>
+						<div class="devitem odd">
+							<a href="/title/tt6951898?ref_=nm_dev_3"> TDA: Taken and Driven Away</a>
+						</div>
+						<div class="devitem even">
+							<a href="/title/tt2905172?ref_=nm_dev_4"> The Candidate</a>
+						</div>
+					</div>
+				</div>
+				<div id="maindetails_center_bottom" class="maindetails_center">
+					<div class="article">
+						<h2>Known For</h2>
+						<div id="knownfor">
+							<div class="knownfor-title">
+								<a href="/title/tt2905172/?ref_=nm_knf_i1"> <img src="https://ia.media-imdb.com/images/M/MV5BYTc1ZTRmNDYtMjlkYy00MmVmLTlkNTYtM2I2OGFkM2E1MjI3XkEyXkFqcGdeQXVyNDg3MDI3MzQ@._V1_UY216_CR88,0,148,216_AL_.jpg" class="wtw-option" /></a>
+								<div class="knownfor-title-role">
+									<a href="/title/tt2905172/?ref_=nm_knf_t1"title="The Candidate" class="knownfor-ellipsis" >The Candidate</a>
+									<span class="knownfor-ellipsis">Producer</span>
+								</div>
+								<div class="knownfor-year"><span class="knownfor-ellipsis"></span></div>
+							</div>
+							<div class="knownfor-title">
+								<a href="/title/tt6456780/?ref_=nm_knf_i2"> <img src="https://images-na.ssl-images-amazon.com/images/G/01/imdb/images/nopicture/medium/film-3385785534._CB499232643_.png"class="wtw-option" /></a>
+								<div class="knownfor-title-role">
+									<a href="/title/tt6456780/?ref_=nm_knf_t2" title="Siren" class="knownfor-ellipsis" >Siren</a>
+									<span class="knownfor-ellipsis">Producer</span>
+								</div>
+								<div class="knownfor-year"><span class="knownfor-ellipsis"></span></div>
+							</div>
+							<div class="knownfor-title">
+								<a href="/title/tt2393817/?ref_=nm_knf_i3"> <img src="https://ia.media-imdb.com/images/M/MV5BNTIzNjc0MzQ5NV5BMl5BanBnXkFtZTcwMDI0NzcxOQ@@._V1_UX148_CR0,0,148,216_AL_.jpg" class="wtw-option" /></a>
+								<div class="knownfor-title-role">
+									<a href="/title/tt2393817/?ref_=nm_knf_t3" title="Dead End" class="knownfor-ellipsis" >Dead End</a> 
+									<span class="knownfor-ellipsis">Producer</span>
+								</div>
+								<div class="knownfor-year"><span class="knownfor-ellipsis">(2012)</span></div>
+							</div>
+							<div class="knownfor-title last">
+								<a href="/title/tt3553416/?ref_=nm_knf_i4"> <img src="https://ia.media-imdb.com/images/M/MV5BNjBkNDllMzItYmJjNS00YWQ2LWFmN2EtYjkwMGVkYWIyMmZjXkEyXkFqcGdeQXVyNDg3MDI3MzQ@._V1_UY216_CR92,0,148,216_AL_.jpg" class="wtw-option" /></a>
+								<div class="knownfor-title-role">
+									<a href="/title/tt3553416/?ref_=nm_knf_t4" title="Mindheist" class="knownfor-ellipsis" >Mindheist</a> 
+									<span class="knownfor-ellipsis">Producer</span>
+								</div>
+								<div class="knownfor-year"><span class="knownfor-ellipsis"></span></div>
+							</div>
+						</div>
+						<h2>Filmography</h2>
+						<div id="filmography">
+							<div id="filmo-head-producer" class="head" data-category="producer" onclick="toggleFilmoCategory(this);">
+								<a name="producer">Producer</a> (11 credits)
+							</div>
+							<div class="filmo-category-section">
+								<div class="filmo-row odd" id="producer-tt6926768">
+									<span class="year_column">&nbsp;2018</span>
+									<b><a href="/title/tt6926768/?ref_=nm_flmg_prd_1">Indie Film</a></b>(consulting producer) (<a href="https://pro.imdb.com/title/tt6926768?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">pre-production</a>)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="producer-tt7895798">
+									<span class="year_column">&nbsp;2018</span>
+									<b><a href="/title/tt7895798/?ref_=nm_flmg_prd_2">P3ACE</a></b>(Short) (line producer) / (producer) (<a href="https://pro.imdb.com/title/tt7895798?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">post-production</a>)
+									<br/>
+								</div>
+								<div class="filmo-row odd" id="producer-tt7089544">
+									<span class="year_column">&nbsp;2018</span>
+									<b><a href="/title/tt7089544/?ref_=nm_flmg_prd_3">Thirteen Cars</a></b>(consulting producer) (<a href="https://pro.imdb.com/title/tt7089544?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">post-production</a>)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="producer-tt6883738">
+									<span class="year_column">&nbsp;2017</span>
+									<b><a href="/title/tt6883738/?ref_=nm_flmg_prd_4">Saor Eire</a></b>(Short) (producer) (<a href="https://pro.imdb.com/title/tt6883738?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">completed</a>)
+									<br/>
+								</div>
+								<div class="filmo-row odd" id="producer-tt4480262">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt4480262/?ref_=nm_flmg_prd_5">Safezone</a></b>(producer) (<a href="https://pro.imdb.com/title/tt4480262?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">announced</a>)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="producer-tt3602422">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt3602422/?ref_=nm_flmg_prd_6">Shed of the Dead</a></b>(executive producer) / (line producer) / (producer) (<a href="https://pro.imdb.com/title/tt3602422?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">post-production</a>)
+									<br/>
+								</div>
+								<div class="filmo-row odd" id="producer-tt3546562">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt3546562/?ref_=nm_flmg_prd_7">The Candy House</a></b>(producer) (<a href="https://pro.imdb.com/title/tt3546562?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">announced</a>)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="producer-tt6883770">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt6883770/?ref_=nm_flmg_prd_8">The Killing of Ada May</a></b>(Short) (producer) (<a href="https://pro.imdb.com/title/tt6883770?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">pre-production</a>)
+									<br/>
+								</div>
+								<div class="filmo-row odd" id="producer-tt3546648">
+									<span class="year_column">&nbsp;2014</span>
+									<b><a href="/title/tt3546648/?ref_=nm_flmg_prd_9">Honour & Obey</a></b>(Short) (executive producer) / (producer)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="producer-tt2393817">
+									<span class="year_column">&nbsp;2012</span>
+									<b><a href="/title/tt2393817/?ref_=nm_flmg_prd_10">Dead End</a></b>(producer)
+									<br/>
+								</div>
+								<div class="filmo-row odd" id="producer-tt1982893">
+									<span class="year_column">&nbsp;2011</span>
+									<b><a href="/title/tt1982893/?ref_=nm_flmg_prd_11">Washed Up</a></b>(TV Movie) (producer)
+									<br/>
+								</div>
+							</div>
+							<div id="filmo-head-director" class="head" data-category="director" onclick="toggleFilmoCategory(this);">
+								<a name="director">Director</a> (7 credits)
+							</div>
+							<div class="filmo-category-section" style="display:none;">
+								<div class="filmo-row odd" id="director-tt6883738">
+									<span class="year_column">&nbsp;2017</span>
+									<b><a href="/title/tt6883738/?ref_=nm_flmg_dr_1">Saor Eire</a></b>(Short) (<a href="https://pro.imdb.com/title/tt6883738?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">completed</a>)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="director-tt4480262">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt4480262/?ref_=nm_flmg_dr_2">Safezone</a></b>(<a href="https://pro.imdb.com/title/tt4480262?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">announced</a>)
+									<br/>
+								</div>
+								<div class="filmo-row odd" id="director-tt3546562">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt3546562/?ref_=nm_flmg_dr_3">The Candy House</a></b>(<a href="https://pro.imdb.com/title/tt3546562?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">announced</a>)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="director-tt6883770">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt6883770/?ref_=nm_flmg_dr_4">The Killing of Ada May</a></b>(Short) (<a href="https://pro.imdb.com/title/tt6883770?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">pre-production</a>)
+									<br/>
+								</div>
+								<div class="filmo-row odd" id="director-tt3546648">
+									<span class="year_column">&nbsp;2014</span>
+									<b><a href="/title/tt3546648/?ref_=nm_flmg_dr_5">Honour & Obey</a></b>(Short)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="director-tt2393817">
+									<span class="year_column">&nbsp;2012</span>
+									<b><a href="/title/tt2393817/?ref_=nm_flmg_dr_6">Dead End</a></b>
+									<br/>
+								</div>
+								<div class="filmo-row odd" id="director-tt1982893">
+									<span class="year_column">&nbsp;2011</span>
+									<b><a href="/title/tt1982893/?ref_=nm_flmg_dr_7">Washed Up</a></b>(TV Movie)
+									<br/>
+								</div>
+							</div>
+							<div id="filmo-head-writer" class="head" data-category="writer" onclick="toggleFilmoCategory(this);">
+								<a name="writer">Writer</a> (6 credits)
+							</div>
+							<div class="filmo-category-section" style="display:none;">
+								<div class="filmo-row odd" id="writer-tt6883738">
+									<span class="year_column">&nbsp;2017</span>
+									<b><a href="/title/tt6883738/?ref_=nm_flmg_wr_1">Saor Eire</a></b>(Short) (<a href="https://pro.imdb.com/title/tt6883738?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">completed</a>)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="writer-tt4480262">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt4480262/?ref_=nm_flmg_wr_2">Safezone</a></b>(<a href="https://pro.imdb.com/title/tt4480262?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">announced</a>)
+									<br/>
+								</div>
+								<div class="filmo-row odd" id="writer-tt3546562">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt3546562/?ref_=nm_flmg_wr_3">The Candy House</a></b>(<a href="https://pro.imdb.com/title/tt3546562?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">announced</a>)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="writer-tt6883770">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt6883770/?ref_=nm_flmg_wr_4">The Killing of Ada May</a></b>(Short) (<a href="https://pro.imdb.com/title/tt6883770?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">pre-production</a>)
+									<br/>
+								</div>
+								<div class="filmo-row odd" id="writer-tt3546648">
+									<span class="year_column">&nbsp;2014</span>
+									<b><a href="/title/tt3546648/?ref_=nm_flmg_wr_5">Honour & Obey</a></b>(Short)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="writer-tt2393817">
+									<span class="year_column">&nbsp;2012</span>
+									<b><a href="/title/tt2393817/?ref_=nm_flmg_wr_6">Dead End</a></b>
+									<br/>
+								</div>
+							</div>
+							<div id="filmo-head-assistant_director" class="head" data-category="assistant_director" onclick="toggleFilmoCategory(this);">
+								<a name="assistant_director">Second Unit Director or Assistant Director</a> (2 credits)
+							</div>
+							<div class="filmo-category-section" style="display:none;">
+								<div class="filmo-row odd" id="assistant_director-tt7895798">
+									<span class="year_column">&nbsp;2018</span>
+									<b><a href="/title/tt7895798/?ref_=nm_flmg_asst_1">P3ACE</a></b>(Short) (first assistant director) (<a href="https://pro.imdb.com/title/tt7895798?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">post-production</a>)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="assistant_director-tt5803438">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt5803438/?ref_=nm_flmg_asst_2">Milk and Honey: The Movie</a></b>(first assistant director) / (second unit director) (<a href="https://pro.imdb.com/title/tt5803438?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">post-production</a>)
+									<br/>
+								</div>
+							</div>
+							<div id="filmo-head-miscellaneous" class="head" data-category="miscellaneous" onclick="toggleFilmoCategory(this);">
+								<a name="miscellaneous">Miscellaneous Crew</a> (2 credits)
+							</div>
+							<div class="filmo-category-section" style="display:none;">
+								<div class="filmo-row odd" id="miscellaneous-tt7895798">
+									<span class="year_column">&nbsp;2018</span>
+									<b><a href="/title/tt7895798/?ref_=nm_flmg_msc_1">P3ACE</a></b>(Short) (script editor) (<a href="https://pro.imdb.com/title/tt7895798?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">post-production</a>)
+									<br/>
+								</div>
+								<div class="filmo-row even" id="miscellaneous-tt6522392">
+									<span class="year_column">&nbsp;2018</span>
+									<b><a href="/title/tt6522392/?ref_=nm_flmg_msc_2">Brumville</a></b>(Police Technical Advisor) (<a href="https://pro.imdb.com/title/tt6522392?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">post-production</a>)
+									<br/>
+								</div>
+							</div>
+							<div id="filmo-head-actor" class="head" data-category="actor" onclick="toggleFilmoCategory(this);">
+								<a name="actor">Actor</a> (1 credit)
+							</div>
+							<div class="filmo-category-section" style="display:none;">
+								<div class="filmo-row odd" id="actor-tt3371366">
+									<span class="year_column">&nbsp;2017</span>
+									<b><a href="/title/tt3371366/?ref_=nm_flmg_act_1">Transformers: The Last Knight</a></b>
+									<br/>Saxon Invader (uncredited)
+								</div>
+							</div>
+							<div id="filmo-head-cinematographer" class="head" data-category="cinematographer" onclick="toggleFilmoCategory(this);">
+								<a name="cinematographer">Cinematographer</a> (1 credit)
+							</div>
+							<div class="filmo-category-section" style="display:none;">
+								<div class="filmo-row odd" id="cinematographer-tt7088522">
+									<span class="year_column">&nbsp;2018</span>
+									<b><a href="/title/tt7088522/?ref_=nm_flmg_cin_1">Groomed</a></b>(Short) (<a href="https://pro.imdb.com/title/tt7088522?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">post-production</a>)
+									<br/>
+								</div>
+							</div>
+							<div id="filmo-head-camera_department" class="head" data-category="camera_department" onclick="toggleFilmoCategory(this);">
+								<a name="camera_department">Camera and Electrical Department</a> (1 credit)
+							</div>
+							<div class="filmo-category-section" style="display:none;">
+								<div class="filmo-row odd" id="camera_department-tt3112286">
+									<span class="year_column">&nbsp;2018</span>
+									<b><a href="/title/tt3112286/?ref_=nm_flmg_cam_1">Torture</a></b>(still photographer)
+									<br/>
+								</div>
+							</div>
+							<div id="filmo-head-editor" class="head" data-category="editor" onclick="toggleFilmoCategory(this);">
+								<a name="editor">Editor</a> (1 credit)
+							</div>
+							<div class="filmo-category-section" style="display:none;">
+								<div class="filmo-row odd" id="editor-tt3546648">
+									<span class="year_column">&nbsp;2014</span>
+									<b><a href="/title/tt3546648/?ref_=nm_flmg_edt_1">Honour & Obey</a></b>(Short)
+									<br/>
+								</div>
+							</div>
+							<div id="filmo-head-stunts" class="head" data-category="stunts" onclick="toggleFilmoCategory(this);">
+								<a name="stunts">Stunts</a> (1 credit)
+							</div>
+							<div class="filmo-category-section" style="display:none;">
+								<div class="filmo-row odd" id="stunts-tt5803438">
+									<span class="year_column">&nbsp;</span>
+									<b><a href="/title/tt5803438/?ref_=nm_flmg_stn_1">Milk and Honey: The Movie</a></b>(action choreographer) (<a href="https://pro.imdb.com/title/tt5803438?rf=cons_nm_filmo&ref_=cons_nm_filmo" class="in_production">post-production</a>)
+									<br/>
+								</div>
+							</div>
+							<div id="filmo-head-self" class="head" data-category="self" onclick="toggleFilmoCategory(this);">
+								<a name="self">Self</a> (1 credit)
+							</div>
+							<div class="filmo-category-section" style="display:none;">
+								<div class="filmo-row odd" id="self-tt3283906">
+									<span class="year_column">&nbsp;2014</span>
+									<b><a href="/title/tt3283906/?ref_=nm_flmg_slf_1">The British Film Industry: Elitist, Deluded or Dormant?</a></b>(Documentary)
+									<br/>Himself
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="article">
+						<h2>Personal Details</h2>
+						<div id="details-publicity-listings" class="see-more inline canwrap">
+							<h4 class="inline">Publicity Listings:</h4>
+							2 Articles <span class="ghost">|</span>
+							<span class="see-more inline"><a href="/name/nm2476904/publicity?ref_=nm_pdt_pub_sm">See more</a></span>&raquo;
+						</div>
+					</div> 
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

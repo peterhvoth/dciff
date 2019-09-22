@@ -1,4 +1,4 @@
-festival_scoring/data
+festival_scoring/data/*
 submission_platform/corenlp_plot_summaries
 submission_platform/corenlp_plot_summaries.tar
 submission_platform/MovieSummaries

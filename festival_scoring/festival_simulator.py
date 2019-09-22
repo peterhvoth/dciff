@@ -1,9 +1,11 @@
+from pathlib import Path
 import numpy as np
 from collections import Counter
 import pandas as pd
 import csv
 import matplotlib.pyplot as plt
 from scipy.stats import describe
+
 
 def make_dist():
     cat_ary = np.array([[16, 14, 9, 24],
@@ -48,7 +50,7 @@ def make_festival(dist):
     return pd.DataFrame(df, columns=df.keys())
 
 def make_festival_actual(year):
-    df = pd.read_csv('{} DCIFF Balloting.csv'.format(year), usecols=['Name', 'Category', 'Great', 'Good', 'Fair', 'Origin'])
+    df = pd.read_csv(data_raw / '{} DCIFF Balloting.csv'.format(year), usecols=['Name', 'Category', 'Great', 'Good', 'Fair', 'Origin'])
     df = df.fillna(0)
     df['Attendance'] = df['Fair'] + df['Good'] + df['Great']
     return df
@@ -162,6 +164,10 @@ def winners(df):
 
     return df
 
+data_dir = Path('data')
+data_raw = data_dir / 'raw'
+data_out = data_dir / 'out'
+
 columns = ['Name', 'Category', 'Great', 'Good', 'Fair', 'Origin', 'Score', 'Attendance', 'year', 'stdev', 'Rank', 'catRank', 'originRank', 'Award']
 
 sd = lambda n, N: 1-((1.96/2)*np.sqrt(((n/N)*(1-(n/N)))/n))
@@ -170,7 +176,7 @@ actual = None
 for year in [2019]:
     festival = make_festival_actual(year)
     festival = finish_festival(festival, year)
-    festival.to_csv('sim_{}.csv'.format(year), columns=columns)
+    festival.to_csv(data_out / 'sim_{}.csv'.format(year), columns=columns)
     try:
         actual = actual.append(festival)
     except:
@@ -185,7 +191,7 @@ for year in [2019]:
 #        data = data.append(festival)
 #    except:
 #        data = festival
-#data.to_csv('sim.csv', columns=columns[1:])
+#data.to_csv(data_out / 'sim.csv', columns=columns[1:])
 
 #print('Simulation')
 #tests(data, award=1, score=1)
@@ -197,7 +203,7 @@ for year in [2019]:
 #    print('Actual {}'.format(year))
 #    tests(actual[actual.year==year], award=1, score=1)
     
-#df = pd.read_csv('2017 DCIFF Balloting.csv')
+#df = pd.read_csv(data_raw / '2017 DCIFF Balloting.csv')
 #df['Fair'] = df['Fair'].fillna(0)
 #df['Good'] = df['Good'].fillna(0)
 #df['Great'] = df['Great'].fillna(0)
@@ -208,6 +214,6 @@ for year in [2019]:
 #print()
 #print('Actual Actual 2017')
 #tests(df, award=1, score=1)
-#df.to_csv('sim_2017a.csv'.format(year), columns=columns)
+#df.to_csv(data_out / 'sim_2017a.csv'.format(year), columns=columns)
 
 

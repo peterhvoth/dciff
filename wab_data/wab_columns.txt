@@ -1,0 +1,95 @@
+001 WAB Tracking ID
+010 Application Date
+020 Category of Entry List
+090 Judging Status
+100 Submission: address (comma-sep)
+101 Submission:  salutation
+102 Submission:  f_name
+103 Submission:  l_name
+105 Submission:  title
+106 Submission:  company
+112 Submission:  country
+113 Submission:  email
+114 Submission:  website url
+125 Director1:  salutation
+126 Director1:  f_name
+127 Director1:  l_name
+129 Director1:  title
+130 Director1:  company
+136 Director1:  country
+137 Director 1: email
+138 Director1: website url
+150 Producer1: salutation
+151 Producer1: f_name
+152 Producer1: l_name
+154 Producer1: title
+155 Producer1: company
+161 Producer1: country
+162 Producer1: email
+163 Producer1: website url
+180 Executive Producer: First Name
+181 Executive Producer: Last Name
+230 Director List
+231 Director1: Gender  
+233 Director1: Citizenship  
+234 Director1: First Film  
+235 Director1: First Feature  
+240 Screenwriter List
+250 Producer List
+260 Executive Producer List
+270 Co-Producer List
+272 Cinematographer List
+273 Production Designer List
+274 Art Director List
+275 Picture Editor List
+276 Sound Editor List
+277 Composer List
+288 Cast List-Names Only
+289 Cast List w/ Credits
+290 Principal Cast 1
+291 Principal Cast 2
+292 Principal Cast 3
+293 Principal Cast 4
+294 Principal Cast 5
+295 Principal Cast 6
+301 Title: Original  
+305 Title: English  
+319 Logline
+320 Synopsis: 3 Line
+321 Synopsis: 125 Word
+322 Synopsis: 250 Word
+328 Project Submission Type
+329 Genre and Niche List
+355 Completion Date  
+365 Runtime  
+370 Budget USD  
+380 Country of Production List
+384 Country of Filming List
+391 First Time Filmmaker/Scriptwriter
+505 Premiere: USA-centric  
+525 Distributor1: salutation
+526 Distributor1: f_name
+527 Distributor1: l_name
+529 Distributor1: title
+530 Distributor1: company
+536 Distributor1: country
+537 Distributor1: email
+538 Distributor1: website url
+701 School: salutation
+702 School: f_name
+703 School: l_name
+705 School: title
+706 School: school name
+712 School: country
+713 School: email
+714 School: website url
+825 Director2: salutation
+826 Director2: f_name
+827 Director2: l_name
+829 Director2: title
+830 Director2: company
+836 Director2: country
+837 Director2: email
+838 Director2: website url
+Unnamed: 0
+Unnamed: 0.1

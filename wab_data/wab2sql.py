@@ -1,8 +1,15 @@
 from pathlib import Path
 import pandas as pd
 import re
-import sqlite3
 from iso3166 import countries
+
+def is_ec2():
+    import socket
+    name = socket.gethostname()
+    if re.match('ip(?:-\d+){4}\.[\w-]+\.compute', name):
+        return True
+    else:
+        return False
 
 def make_genre_table():
     genres = {}
@@ -24,7 +31,7 @@ def get_country_list(country_list):
                                   (iso3166_list['name'].map(name_stripper)==name_stripper(country)) |  
                                   (iso3166_list['name'].str.contains(re.escape(country)))]['alpha3'].values.tolist()
             if not result:
-                print(country)
+                missing_countries[country] = True
     return result
 
 def country_errors():
@@ -42,8 +49,16 @@ data_dir = Path('data')
 raw_dir = data_dir / 'raw'
 interim_dir = data_dir / 'interim'
 out_dir = data_dir / 'out'
+missing_countries = {}
 
-conn = sqlite3.connect(':memory:')
+if is_ec2():
+    import sqlite3
+    conn = sqlite3.connect(':memory:')
+else:
+    import mysql.connector
+    conn = mysql.connector.Connect(host='main.caqmcqa1ulqd.us-east-2.rds.amazonaws.com', user='admin', password='Dciff2020', database='common')
+    
+conn.text_factory = str
 conn.row_factory = sqlite3.Row
 db = conn.cursor()
 
@@ -166,6 +181,6 @@ for row in db.fetchall():
 db.execute('SELECT * FROM person_country LIMIT 10')
 for row in db.fetchall():
     print(dict(row))
-
+print(list(missing_countries.keys()))
 
 

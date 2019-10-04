@@ -52,14 +52,14 @@ out_dir = data_dir / 'out'
 missing_countries = {}
 
 if is_ec2():
-    import sqlite3
-    conn = sqlite3.connect(':memory:')
-else:
     import mysql.connector
     conn = mysql.connector.Connect(host='main.caqmcqa1ulqd.us-east-2.rds.amazonaws.com', user='admin', password='Dciff2020', database='common')
-    
-conn.text_factory = str
-conn.row_factory = sqlite3.Row
+else:
+    import sqlite3
+    conn = sqlite3.connect(':memory:')
+    conn.row_factory = sqlite3.Row
+    conn.text_factory = str
+
 db = conn.cursor()
 
 iso3166_list = pd.DataFrame([dict(item._asdict().items()) for item in countries])

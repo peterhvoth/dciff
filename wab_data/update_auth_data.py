@@ -28,5 +28,3 @@ else:
     for row in db.fetchall():
         print(dict(row))
 conn.close()
-
-

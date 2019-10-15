@@ -3,7 +3,6 @@ import pandas as pd
 import re
 from iso3166 import countries
 from datetime import datetime
-import sqlalchemy
 from sqlalchemy import create_engine, MetaData, Table, Column
 from sqlalchemy import Integer, String, Date, Text, Boolean
 from sqlalchemy import select, text
@@ -25,12 +24,10 @@ def get_col_type(tbl, col):
         return ''
 
 def read_auth_table(key):
-    import sqlite3
-    conn = sqlite3.connect('auth_info.db')
-    conn.row_factory = sqlite3.Row
-    db = conn.cursor()
-    db.execute('SELECT username, password FROM main WHERE key=?', [key])
-    return dict(db.fetchone())
+    db = create_engine('sqlite:///auth_info.db')
+    sql = 'SELECT username, password FROM main WHERE key=:key'
+    result = db.execute(sql, key=key).fetchone()
+    return result
     
 def make_genre_table():
     genres = {}
@@ -81,8 +78,7 @@ db = create_engine(connect_string, encoding='utf-8')
 metadata = MetaData()
 
 if 1==1:
-    tables = ['film', 'film_genre', 'film_country', 'person', 'film_person', 'person_country']
-    for tbl in tables:
+    for tbl in ['film', 'film_genre', 'film_country', 'person', 'film_person', 'person_country']:
         db.execute('DROP TABLE IF EXISTS {}'.format(tbl))
 
 tbl_film = Table('film', metadata, 
@@ -179,6 +175,7 @@ for col in data.columns:
         data[col] = data[col].fillna(cur_val)
 
 for idx, row in data.iterrows():
+    print('{} / {}'.format(idx, len(data)) )
     cur_cols = cols.loc[(cols.table=='film') & (cols.type!='')]
     df = row[cur_cols['col_df']].rename(dict(zip(cur_cols['col_df'], cur_cols['col_tbl'])))
     result = db.execute(tbl_film.insert().values(df.to_dict()))

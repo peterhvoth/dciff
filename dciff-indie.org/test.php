@@ -5,19 +5,32 @@
 <body>
 <h3>DB Results</h3>
 <?php
-echo gethostname();
-foreach($_GET as $key => $val) {
-	echo $key . " - " . $val . "<br>";
+if (preg_match('ip(?:-\d+){4}\.[\w-]+\.compute', gethostname())) {
+    $conn = new mysqli("main.caqmcqa1ulqd.us-east-2.rds.amazonaws.com", "webuser", "", "wab");
+} else {
+    $conn = new mysqli("localhost", "webuser", "", "wab");
 }
-$conn = mysqli_connect("main.caqmcqa1ulqd.us-east-2.rds.amazonaws.com", "webuser", "", "wab");
-$result = mysqli_query($conn,"SELECT * FROM film ORDER BY rand() LIMIT 3");
-echo '<pre>';
-while($row=mysqli_fetch_assoc($result)) {
-	$tblEntries[] = $row;
-	print_r($row);
+
+$stmt = $conn->prepare("SELECT * FROM film WHERE id=?");
+$stmt->bind_param("i", $_GET['film_id']);
+$stmt->execute();
+$result = mysqli_fetch_assoc($stmt->get_result());
+
+$title = $result['title_original']!='' & $result['title_original']!=$result['title_english'] ? $result['title_english'] . ' (' . $result['title_original'] . ')' : $result['title_english'];
+
+if ($result['synopsis_250_word']!='') {
+    $result['synopsis'] =  $result['synopsis_250_word'];
+} elseif ($result['synopsis_125_word']!='') {
+    $result['synopsis'] =  $result['synopsis_125_word'];
+} elseif ($result['synopsis_3_line']!='') {
+    $result['synopsis'] =  $result['synopsis_3_line'];
+} else {
+    $result['synopsis'] =  $result['logline'];
 }
-echo '</pre>';
-mysqli_close($conn);
 ?>
+<h1><?php echo $title; ?></h1>
+<p><?php echo $result['synopsis']; ?></p>
+
+<?php mysqli_close($conn); ?>
 </body>
 </html>

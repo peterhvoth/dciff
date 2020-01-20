@@ -1,23 +1,21 @@
 import os, argparse, sys
 import sqlite3
 
-arglist = {'key' : 'key', 'user' : 'username', 'pwd' : 'password'}
-auth_db_name = 'auth_info.db'
+arglist = {'key' : 'key', 'host' : 'hostname', 'user' : 'username', 'pwd' : 'password'}
+dbinfo_name = 'dbinfo.db'
 
 parser = argparse.ArgumentParser()
 for item in arglist.keys():
     parser.add_argument('--' + item)
 
 args = parser.parse_args()
-
-create_table = False if os.path.isfile(auth_db_name) else True
-conn = sqlite3.connect(auth_db_name)
+conn = sqlite3.connect(dbinfo_name)
 conn.row_factory = sqlite3.Row
 db = conn.cursor()
 
-if create_table:
-    db.execute('CREATE TABLE main (key VARCHAR(50) PRIMARY KEY, username VARCHAR(50), password VARCHAR(50))')
-
+if not os.path.isfile(dbinfo_name):
+    db.execute('CREATE TABLE main (key VARCHAR(50) PRIMARY KEY, hostname VARCHAR(255), username VARCHAR(50), password VARCHAR(50))')
+print(args)
 if args.key:
     args = {arglist[arg] : getattr(args, arg) for arg in vars(args) if getattr(args, arg)}
     param_list = lambda num, str='?': ','.join([str]*num)

@@ -1,0 +1,15 @@
+admin
+	phpmyadmin
+auth
+data
+	filmdb
+	contactdb
+festival
+festivalops
+	housing
+	seafile
+reviews
+submission
+survey
+	limesurvey
+wordpress

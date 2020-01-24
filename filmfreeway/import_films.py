@@ -42,17 +42,17 @@ data_dir = Path('~/Documents/DCIFF')
 
 drop_cols = ['Tracking Number', 'Lyrics', 'Project Type', 'Student Project', 'Production Budget', 'Shooting Format', 'Aspect Ratio', 'Film Color', 
              'Camera', 'Lens', 'Focal Length', 'Shutter Speed', 'Aperture', 'ISO / Film', 'Other Credits', 'Rating', 'Submission Date', 
-             'Submission Status', 'Judging Status', 'Submission Deadlines', 'Submission Fee', 'Discount Code', 'Submission Link', 'Submission Password', 
-             'Assigned Judges', 'Screenings / Awards', 'Distributor Information', 'Submission ID', 'Submission Notes', 'Submission Custom Field 1', 
+             'Submission Status', 'Judging Status', 'Submission Deadlines', 'Submission Fee', 'Discount Code', 'Assigned Judges', 
+             'Screenings / Awards', 'Distributor Information', 'Submission ID', 'Submission Notes', 'Submission Custom Field 1', 
              'Submission Custom Answer 1', 'Submission Custom Field 2', 'Submission Custom Answer 2', 'Submission Custom Field 3']
 
 cols = {'main' : ['First Name', 'Last Name', 'Birthdate', 'Gender', 'Email', 'Phone', 'Address', 'Address 2', 'City', 'State', 'Postal Code', 'Country', 
                  'Project Title', 'Project Title (Original Language)', 'Synopsis', 'Synopsis (Original Language)', 'Duration', 'Country of Origin', 
                  'Language', 'Trailer URL', 'Country of Filming', 'Project Website', 'Twitter', 'Facebook', 'Genres', 'Completion Date', 
                  'First-time Filmmaker', 'Directors', 'Writers', 'Producers', 'Key Cast', 'Submitter Statement', 'Submitter Biography', 'Flag', 
-                 'Submission Categories', 'Submission Custom Answer 3'], 
-        'cheat_sheet' : ['Category', 'Title', 'Contact Name', 'Contact Email', 'Contact Phone', 'Run Time', 'Completion Date', 'Director 1', 
-                         'Producer 1', 'Cast 1', 'Cast 2', 'Cast 3', 'Premiere', 'DC Metro', 'Female', 'Synopsis']}
+                 'Submission Categories', 'Submission Link', 'Submission Password', 'Submission Custom Answer 3'], 
+        'cheat_sheet' : ['Category', 'Title', 'Contact Name', 'Contact Email', 'Contact Phone', 'Run Time', 'Completion Date', 'Synopsis', 'Director 1', 
+                         'Producer 1', 'Cast 1', 'Cast 2', 'Cast 3', 'Premiere', 'DC Metro', 'Female', 'Screener', 'Screener Password']}
 
 colmap = {'Project Title' : 'Title', 'Category' : 'Category', 'Duration' : 'Run Time', 'Completion Date' : 'Completion Date', 
           'Email' : 'Contact Email', 'Phone' : 'Contact Phone', 'Synopsis' : 'Synopsis'}
@@ -78,9 +78,10 @@ df['Producer 1'] = df_main.loc[:,'Producers'].apply(get_multi, n=1)
 df['Premiere'] = ''
 df['Female'] = df_main['Gender'].apply(lambda x: 1 if x=='Female' else '')
 df['DC Metro'] = df_main['DC Metro'].apply(lambda x: 1 if x=='Yes' else '')
+df[['Screener', 'Screener Password']] = df_main.apply(lambda x: pd.Series({'Screener' : x['Submission Link'], 'Screener Password' : x['Submission Password']}) if not re.search('filmfreeway\.com', x['Submission Link']) else pd.Series({'Screener' : '', 'Screener Password' : ''}), axis=1)
 
 for ctry in countries:
     df[ctry] = df_main['Country of Origin'].apply(lambda x: 1 if x==ctry else '')
 
 df_main.to_csv(Path(data_dir / 'filmfreeway-useful.csv'), index=False)
-df.reindex(columns=cols['cheat_sheet'].extend(countries)).to_csv(Path(data_dir / 'filmfreeway-google_drive.csv'), index=False)
+df.reindex(columns=list(df.columns).extend(countries)).to_csv(Path(data_dir / 'filmfreeway-google_drive.csv'), index=False)

@@ -3,6 +3,7 @@ import pandas as pd
 import re
 
 def get_category(s):
+    series = True if re.search('Series', s, re.IGNORECASE) else False
     feature = True if re.search('\(over 40 mins\)', s, re.IGNORECASE) else False
     doc = True if re.search('documentary', s, re.IGNORECASE) else False
     animation = True if re.search('animation', s, re.IGNORECASE) else False
@@ -10,6 +11,8 @@ def get_category(s):
     
     if hs:
         result = 'High School'
+    elif series:
+        result = 'Series Episode'
     elif animation:
         result = 'Animation'
     elif doc and feature:
@@ -37,29 +40,47 @@ def get_multi(s, n=0):
 
 data_dir = Path('~/Documents/DCIFF')
 
-google_drive_cols = ['Category', 'Title', 'Contact Name', 'Contact Email', 'Contact Phone', 'Run Time', 'Country', 
-                     'Completion Date', 'Director 1', 'Producer 1', 'Cast 1', 'Cast 2', 'Cast 3', 'Premiere', 'Synopsis']
-colmap = {'Project Title' : 'Title', 'Category' : 'Category', 'Duration' : 'Run Time', 
-          'Completion Date' : 'Completion Date', 'DC Metro' : 'DC Metro', 'Email' : 'Contact Email', 
-          'Phone' : 'Contact Phone', 'Country of Origin' : 'Country', 'Synopsis' : 'Synopsis'}
+drop_cols = ['Tracking Number', 'Lyrics', 'Project Type', 'Student Project', 'Production Budget', 'Shooting Format', 'Aspect Ratio', 'Film Color', 
+             'Camera', 'Lens', 'Focal Length', 'Shutter Speed', 'Aperture', 'ISO / Film', 'Other Credits', 'Rating', 'Submission Date', 
+             'Submission Status', 'Judging Status', 'Submission Deadlines', 'Submission Fee', 'Discount Code', 'Submission Link', 'Submission Password', 
+             'Assigned Judges', 'Screenings / Awards', 'Distributor Information', 'Submission ID', 'Submission Notes', 'Submission Custom Field 1', 
+             'Submission Custom Answer 1', 'Submission Custom Field 2', 'Submission Custom Answer 2', 'Submission Custom Field 3']
 
-columns = pd.read_csv(Path(data_dir / 'cols_in.csv'))
-columns = columns.loc[columns.iloc[:,2]==1].iloc[:,1]
+cols = {'main' : ['First Name', 'Last Name', 'Birthdate', 'Gender', 'Email', 'Phone', 'Address', 'Address 2', 'City', 'State', 'Postal Code', 'Country', 
+                 'Project Title', 'Project Title (Original Language)', 'Synopsis', 'Synopsis (Original Language)', 'Duration', 'Country of Origin', 
+                 'Language', 'Trailer URL', 'Country of Filming', 'Project Website', 'Twitter', 'Facebook', 'Genres', 'Completion Date', 
+                 'First-time Filmmaker', 'Directors', 'Writers', 'Producers', 'Key Cast', 'Submitter Statement', 'Submitter Biography', 'Flag', 
+                 'Submission Categories', 'Submission Custom Answer 3'], 
+        'cheat_sheet' : ['Category', 'Title', 'Contact Name', 'Contact Email', 'Contact Phone', 'Run Time', 'Completion Date', 'Director 1', 
+                         'Producer 1', 'Cast 1', 'Cast 2', 'Cast 3', 'Premiere', 'DC Metro', 'Female', 'Synopsis']}
 
-ff_data = pd.read_csv(Path(data_dir / 'filmfreeway-submissions.csv')).loc[:,columns]
-ff_data = ff_data.rename(columns={'Submission Custom Answer 3':'DC Metro'})
-ff_data['Category'] = ff_data.loc[:,'Submission Categories'].apply(get_category)
-ff_data = ff_data.drop(columns='Submission Categories')
-ff_data['Alumni'] = ff_data.loc[:,'Flag'].apply(lambda x: True if x=='Alumni' else False)
-ff_data = ff_data.drop(columns='Flag')
+colmap = {'Project Title' : 'Title', 'Category' : 'Category', 'Duration' : 'Run Time', 'Completion Date' : 'Completion Date', 
+          'Email' : 'Contact Email', 'Phone' : 'Contact Phone', 'Synopsis' : 'Synopsis'}
+
+df = pd.read_csv(Path(data_dir / 'filmfreeway-submissions.csv'))
+df = df[df['Judging Status']=='Selected'].drop(drop_cols, axis=1)
+
+df_main = df.loc[:,cols['main']]
+df_main['Project Title'] = df_main['Project Title'].apply(lambda x: re.sub('"(.*)"', '\g<1>', x)) 
+df_main['DC Metro'] = df['Submission Custom Answer 3']
+df_main['Category'] = df.loc[:,'Submission Categories'].apply(get_category)
+df_main['Alumni'] = df.loc[:,'Flag'].apply(lambda x: True if x=='Alumni' else False)
+df_main['Country'] = df['Country of Origin'].apply(lambda x: x.split(',')[0])
+
+countries = df_main['Country'].drop_duplicates().sort_values()
 
 df = pd.DataFrame()
-df[list(colmap.values())] = ff_data[list(colmap.keys())]
-df[['Cast 1', 'Cast 2', 'Cast 3']] = ff_data.loc[:,'Key Cast'].apply(lambda x: pd.Series(get_multi(x, 3)))
-df['Contact Name'] = ff_data.apply(lambda x: x['First Name'] + ' ' + x['Last Name'], axis=1)
-df['Director 1'] = ff_data.loc[:,'Directors'].apply(get_multi, n=1)
-df['Producer 1'] = ff_data.loc[:,'Producers'].apply(get_multi, n=1)
+df[list(colmap.values())] = df_main[list(colmap.keys())]
+df[['Cast 1', 'Cast 2', 'Cast 3']] = df_main.loc[:,'Key Cast'].apply(lambda x: pd.Series(get_multi(x, 3)))
+df['Contact Name'] = df_main.apply(lambda x: x['First Name'] + ' ' + x['Last Name'], axis=1)
+df['Director 1'] = df_main.loc[:,'Directors'].apply(get_multi, n=1)
+df['Producer 1'] = df_main.loc[:,'Producers'].apply(get_multi, n=1)
 df['Premiere'] = ''
+df['Female'] = df_main['Gender'].apply(lambda x: 1 if x=='Female' else '')
+df['DC Metro'] = df_main['DC Metro'].apply(lambda x: 1 if x=='Yes' else '')
 
-ff_data.to_csv(Path(data_dir / 'filmfreeway-useful.csv'), index=False)
-df.to_csv(Path(data_dir / 'filmfreeway-google_drive.csv'), columns=google_drive_cols, index=False)
+for ctry in countries:
+    df[ctry] = df_main['Country of Origin'].apply(lambda x: 1 if x==ctry else '')
+
+df_main.to_csv(Path(data_dir / 'filmfreeway-useful.csv'), index=False)
+df.reindex(columns=cols['cheat_sheet'].extend(countries)).to_csv(Path(data_dir / 'filmfreeway-google_drive.csv'), index=False)

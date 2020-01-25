@@ -10,8 +10,9 @@ df = pd.read_csv(Path(data_dir / 'filmfreeway-useful.csv'))
 f = open(Path(data_dir / 'mediawiki_import.xml'), 'w')
 f.write(header)
 
+year = 2020
+
 for idx, row in df.iterrows():
-    year = 2020
     completion_date = '' if pd.isna(row['Completion Date']) else datetime.strptime(row['Completion Date'], '%Y-%m-%d').year
     row.fillna('', inplace=True)
     row['Alumni'] = 'Yes' if row['Alumni'] else 'No'

@@ -36,7 +36,7 @@ def report_title_list(titles):
         print_screener(row)
 
 def print_screener(row, event_info=False, screener=False):
-    result = '{0}\n{1}\n{2}'.format(row['Title'], row['Category'], row['Synopsis_Short'])
+    result = '{0}\n{1}\n{2}'.format(row['Title'], row['Category'], row['Logline'])
     result = result.strip()
     if event_info and row['event_info']!='':
         result += '\n{}'.format(row['event_info'])
@@ -68,26 +68,40 @@ df = pd.merge(df, venue, on='venue_id', how='left', suffixes=('', '_duplicate'))
 df.fillna('', inplace=True)
 
 df.loc[df['program_title']!='', 'event_info'] = df.apply(make_datetime, axis=1) + '\n' + df['venue_name'] + '\n' + df['address'] + '\nMetro: ' + df['metro']
-df.loc[(df['program_title']!='') & (df['program_title']!=df['title']), 'event_info'] = df['program_title'] + '\n' + df['event_info']
+df.loc[(df['program_title']!='') & (df['program_title']!=df['title']), 'event_info'] = df['program_title'] + '\n' + df['url'] + '\n' + df['event_info']
 df['date'] = df.apply(lambda x: pd.to_datetime(x['date'] + ' 2020', errors='ignore'), axis=1)
 
-df.to_csv('tmp.csv')
-report_by_column(event_info=True, screener=False, cnt_floor=1)
-sets = {'gary' : ['The Ringmaster', 'The Dark End of the Street', 'Life in Synchro'], 
-        'eli' : ['love type d', 'the dark end of the street', "Abe's Story", 'life in synchro', 'soumaya', 'Maradona’s Legs', 'Lost and Found', 'The Dance', 'Up from the Streets'],
-        'european union' : ["Free Fun",  "Daughter",  "Infraction",  "Soumaya",  "The Cage",  "Titan (Creative Spirit)",  "Watching The Pain of Others",  "Maradona’s Legs",  "Heat Wave",  "Abe's Story",  "the Ball's Run",  "Sea Shepherd",  "Flora"], 
-        'nell' : ["Ek Cup Chaha (One Cup of Tea)", "Maradona’s Legs", "The Dance", "Watching The Pain of Others", "SEMA", "Soumaya"], 
-        'lgbt' : ['Free Fun', 'Going Steady', 'Good Genes', 'The Holocaust is Over, Bitch', 'Where My Girls']
+#df.to_csv('tmp.csv')
+#report_by_column(event_info=True, screener=False, cnt_floor=1)
+sets = {#'gary' : ['The Ringmaster', 'The Dark End of the Street', 'Life in Synchro'], 
+#        'eli' : ['love type d', 'the dark end of the street', "Abe's Story", 'life in synchro', 'soumaya', 'Maradona’s Legs', 'Lost and Found', 'The Dance', 'Up from the Streets'],
+        'european union' : ["Free Fun",  "Daughter",  "Infraction",  "Soumaya",  "The Cage",  "Titan (Creative Spirit)",  "Watching The Pain of Others",  "Maradona’s Legs",  "Heat Wave",  "Abe's Story",  "the Ball's Run",  "Sea Shepherd",  "Flora"]#, 
+#        'nell' : ["Ek Cup Chaha (One Cup of Tea)", "Maradona’s Legs", "The Dance", "Watching The Pain of Others", "SEMA", "Soumaya"], 
+#        'lgbt' : ['Free Fun', 'Going Steady', 'Good Genes', 'The Holocaust is Over, Bitch', 'Where My Girls', 'Life in Synchro']
         }
 
 for name, films in sets.items():
     with open('event_info/' + name + '.txt', 'w') as f:
         for idx, row in df.loc[df['title_id'].isin(make_title_id(pd.Series(films)))].sort_values(axis=0, by=['Category', 'Title', 'date']).iterrows():
-            f.write(print_screener(row, event_info=True, screener=True))
-
-with open('event_info/all.txt', 'w') as f:
-    for idx, row in df.sort_values(axis=0, by=['Category', 'Title', 'date']).iterrows():
-        f.write(print_screener(row, event_info=True, screener=True))
+            f.write(print_screener(row, event_info=True))
+#cats = ['Narrative Feature', 'Documentary Feature', 'Series Episode', 'Animation', 'Narrative Short', 'Documentary Short']
+#with open('event_info/all.txt', 'w') as f:
+#    for cat in cats:
+#        f.write(cat + '\n')
+#        for idx, row in df.loc[df['Category']==cat].sort_values(axis=0, by=['Title', 'date']).iterrows():
+#            f.write('\t{0}\n\t\t{1}'.format(row['Title'], row['Logline']))
+#            if row['event_info']!='':
+#                f.write('\n\t\t{}'.format(re.sub('\n', '\n\t\t', row['event_info'])))
+#            if row['Screener']!='':
+#                f.write('\n\t\t{}'.format(row['Screener']))
+#                if row['Screener Password']!='':
+#                    f.write('\n\t\tpw: {}'.format(row['Screener Password']))
+#            else:
+#                f.write('\n\t\tNo Screener Available. Please contact us for access.')
+#            f.write('\n')
+#    for idx, row in df.sort_values(axis=0, by=['Category', 'Title', 'date']).iterrows():
+#        f.write(print_screener(row, event_info=True, screener=True))
+report_by_column(event_info=True)
 #report_by_column(['Cyprus', 'Czech Republic', 'France', 'Germany', 'Greece', 'Ireland', 'Italy', 'Portugal', 'Spain'])
 #report_by_column(['United Kingdom'], event_info=True, screener=False)
 #print(df.loc[df['Screener']==''][['Title', 'Category']].to_string(index=False))
